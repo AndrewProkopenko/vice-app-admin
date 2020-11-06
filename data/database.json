@@ -1,6 +1,6 @@
 {
   "prefixes": {
-    "laptops": "prefix2"
+    "laptops": "prefix"
   },
   "price": [
     {
@@ -626,7 +626,89 @@
         "name": "Апгрейд",
         "slug": "apgreyd-noutbukov",
         "id": 45
+      },
+      {
+        "name": "Тестовая услуга",
+        "slug": "testovaya_usluga",
+        "id": 46
+      },
+      {
+        "name": "asdas",
+        "slug": "asdasd",
+        "id": 47
       }
     ]
+  },
+  "meta": {
+    "main": {
+      "title": "Глав",
+      "description": "main desc ",
+      "name": "Главная"
+    },
+    "uslugi": {
+      "title": "Услуги",
+      "description": "Описаие клсгуц",
+      "name": "Услуги"
+    },
+    "price": {
+      "title": "Цена",
+      "description": "Описание Цен",
+      "name": "Цена"
+    },
+    "o-nas": {
+      "name": "О нас",
+      "title": "nas title",
+      "description": "nas desc "
+    },
+    "novosti": {
+      "name": "Новости",
+      "title": "novosti title",
+      "description": "novosti desc "
+    },
+    "otzyvy": {
+      "name": "Отзывы",
+      "title": "otzyvy title",
+      "description": "otzyvy desc "
+    },
+    "uslugi-garantiynyy-remont": {
+      "name": "Гарантийный ремонт",
+      "title": "Гарантийный ремонт",
+      "description": "kontakty desc "
+    },
+    "uslugi-remont-kompyuterov": {
+      "name": "Ремонт компьютеров",
+      "title": "Ремонт компьютеров",
+      "description": "kontakty desc "
+    },
+    "uslugi-remont-istochnikov": {
+      "name": "Ремонт источников бесперебойного питания и стабилизаторов напряжения",
+      "title": "Ремонт источников бесперебойного питания и стабилизаторов напряжения title",
+      "description": "kontakty desc "
+    },
+    "uslugi-remont-printerov-mfu-kopirov": {
+      "name": "Ремонт принтеров, МФУ, копиров",
+      "title": "uslugi-remont-printerov-mfu-kopirov title",
+      "description": "kontakty desc "
+    },
+    "uslugi-remont-planshetov-i-smartfonov": {
+      "name": "Ремонт планшетов и смартфонов",
+      "title": "kontakty title",
+      "description": "kontakty desc "
+    },
+    "uslugi-platnyy-remont": {
+      "name": "Платный ремонт",
+      "title": "Платный ремонт title",
+      "description": "kontakty desc "
+    },
+    "o-nas-garantiynoye-obsluzhivaniye": {
+      "name": "Гарантийное обслуживание",
+      "title": "garanr",
+      "description": "kontakty desc "
+    },
+    "o-nas-nashi-vendory": {
+      "name": "Наши авторизации",
+      "title": "Наши title",
+      "description": "kontakty desc "
+    }
   }
 }

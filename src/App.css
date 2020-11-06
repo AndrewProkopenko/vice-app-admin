@@ -37,6 +37,9 @@ code {
 .pl-3 {
   padding-left: 1.5em !important;
 }
+.pl-5 {
+  padding-left: 3em !important;
+}
 .pb-3 {
   padding-bottom: 1.5em !important;
 }
@@ -53,15 +56,24 @@ code {
  .flex-list {
    display: flex;
    flex-wrap: wrap;
-
  }
 .flex-list  >* {
+  display: flex;
+  align-items: center;
   flex-grow: 1;
   width: 50%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+.flex-list  li  {
+
 }
 .flex-list  >*:hover {
   background-color: rgba(0,0,0,.08);
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.accordion {
+  background-color: #f7f7f7 !important;
 }
 
 @media screen and (max-width: 768px) {

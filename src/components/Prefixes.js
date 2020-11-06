@@ -1,5 +1,5 @@
 import React from "react";
-import axios from 'axios'
+import axios from '../libs/axios'
 
 import SaveIcon from '@material-ui/icons/Save';
 import { FormGroup, TextField, Button , Typography} from '@material-ui/core'
@@ -14,7 +14,11 @@ function Prefixes () {
 
     React.useEffect( () => {
         axios.get('http://localhost:3000/prefixes')
-            .then( response => setPrefixes(response.data.laptops) )
+            .then(
+                response => {
+                    setPrefixes(response.laptops)
+                }
+            )
     }, [])
 
     function handleInput(e) {

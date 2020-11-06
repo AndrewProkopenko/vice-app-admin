@@ -3,16 +3,14 @@ import axios from "../../libs/axios";
 
 
 import {
-    Typography,
     Button,
     List,
     Grid, FormGroup, TextField, ListItemText, ListItemSecondaryAction, IconButton, ListItem
 } from '@material-ui/core';
 import SaveIcon from "@material-ui/icons/Save";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-function Laptops () {
+function LaptopsBrands () {
 
     let [newBrandName, setNewBrandName] = React.useState('')
     let [newBrandSlug, setNewBrandSlug] = React.useState('')
@@ -57,13 +55,14 @@ function Laptops () {
         }
         newBrands.push(createdBrand)
 
-        const sentData = {
+        let  sentData =  {
             "brands" : newBrands,
             "services": services
         }
 
         setLaptops(sentData)
         axios.put('http://localhost:3000/laptops', sentData)
+
 
         setNewBrandName('')
         setNewBrandSlug('')
@@ -86,7 +85,7 @@ function Laptops () {
                 <List className={'flex-list'}>
                     {
                         newBrands.map((item) => (
-                            <ListItem divider={true} key={item.id}>
+                            <ListItem key={item.id}>
                                 <ListItemText
                                     primary={`${item.name}`}
                                     secondary={`slug: ${item.slug}, id: ${item.id}`}
@@ -94,9 +93,6 @@ function Laptops () {
                                 <ListItemSecondaryAction
                                     onClick={ () => removeBrand(item.id) }
                                 >
-                                    <div>
-                                        {/*<CircularProgress color={"secondary"} size={20}/>*/}
-                                    </div>
                                     <IconButton edge="end" aria-label="delete">
                                         <DeleteIcon/>
                                     </IconButton>
@@ -160,4 +156,4 @@ function Laptops () {
     )
 }
 
-export default Laptops
+export default LaptopsBrands

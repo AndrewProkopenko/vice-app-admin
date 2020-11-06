@@ -1,8 +1,7 @@
 import React from "react";
-import axios from "../../libs/axios";
 
-import Brands from './Brands'
-
+import LaptopsBrands from './LaptopsBrands'
+import LaptopsServices from "./LaptopsServices";
 
 import {
     Typography,
@@ -16,37 +15,29 @@ import { ExpandMore } from '@material-ui/icons';
 function Laptops () {
 
     return (
-        <div >
+        <React.Fragment >
             <Typography variant="h6" gutterBottom={true}>
                 Ремонт ноутбуков
             </Typography>
-            <Accordion boxShadow={1}>
-
+            <Accordion className={'accordion'} >
                 <AccordionSummary  expandIcon={<ExpandMore />}>
-                        Бренды
+                    Бренды
                 </AccordionSummary>
-
                 <AccordionDetails>
-                    <Brands/>
+                    <LaptopsBrands/>
                 </AccordionDetails>
-
             </Accordion>
 
-            <Accordion>
-
+            <Accordion className={'accordion'}>
                 <AccordionSummary  expandIcon={<ExpandMore />}>
                     Услуги
                 </AccordionSummary>
-
                 <AccordionDetails>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                    sit amet blandit leo lobortis eget.
+                    <LaptopsServices/>
                 </AccordionDetails>
-
             </Accordion>
 
-
-        </div>
+        </React.Fragment>
     )
 }
 
