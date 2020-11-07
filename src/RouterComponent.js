@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Prefixes from "./components/Prefixes";
 import Laptops from "./components/Laptops/Laptops";
 import Meta from "./components/Meta/Meta"
+import Services from "./components/Services(Uslugi)/Services";
 // import Pages from "./components/Pages";
 
 function RouterComponent () {
@@ -14,6 +15,7 @@ function RouterComponent () {
             <Route exact path="/prefixes" component={Prefixes}  />
             {/*<Route exact path="/pages" component={Pages}  />*/}
             <Route exact path="/content/remont-noutbukov" component={Laptops}  />
+            <Route exact path="/content/uslugi" component={Services}  />
             <Route path="/meta/:page" component={Meta}   />
         </Switch>
     )

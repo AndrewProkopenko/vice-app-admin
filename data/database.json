@@ -1,6 +1,6 @@
 {
   "prefixes": {
-    "laptops": "prefix"
+    "laptops": "prefixes3"
   },
   "price": [
     {
@@ -710,5 +710,45 @@
       "title": "Наши title",
       "description": "kontakty desc "
     }
+  },
+  "pages": {
+    "uslugi": [
+      {
+        "name": "Гарантийный ремонт",
+        "slug": "qwqw",
+        "show": true,
+        "id": 1
+      },
+      {
+        "name": "Ремонт компьютеров",
+        "slug": "232",
+        "show": true,
+        "id": 2
+      },
+      {
+        "name": "Ремонт источников бесперебойного питания и стабилизаторов напряжения",
+        "slug": "qweqwe",
+        "show": true,
+        "id": 3
+      },
+      {
+        "name": "Ремонт принтеров, МФУ, копиров",
+        "slug": "dsfdsf",
+        "show": true,
+        "id": 4
+      },
+      {
+        "name": "Ремонт планшетов и смартфонов",
+        "slug": "dad",
+        "show": true,
+        "id": 5
+      },
+      {
+        "name": "Платный ремонт",
+        "slug": "ewe",
+        "show": true,
+        "id": 6
+      }
+    ]
   }
 }

@@ -34,7 +34,7 @@ function Sidebar() {
                 </ListItem>
                 <Collapse in={open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <NavLink exact to='/content/usligi' >
+                        <NavLink exact to='/content/uslugi' >
                             <ListItem button >
                                 <ListItemText primary={'Услуги'} secondary={"path: /uslugi"}  className={'pl-3'}/>
                             </ListItem>
