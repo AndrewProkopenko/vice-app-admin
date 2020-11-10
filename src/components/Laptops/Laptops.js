@@ -19,6 +19,9 @@ function Laptops () {
             <Typography variant="h6" gutterBottom={true}>
                 Ремонт ноутбуков
             </Typography>
+            <h5> 
+                Примечание: для этой страницы тег h1 заполняется из метатега title
+            </h5>
             <Accordion className={'accordion'} >
                 <AccordionSummary  expandIcon={<ExpandMore />}>
                     Бренды
@@ -36,7 +39,7 @@ function Laptops () {
                     <LaptopsServices/>
                 </AccordionDetails>
             </Accordion>
-
+            
         </React.Fragment>
     )
 }

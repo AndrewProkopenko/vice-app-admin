@@ -8,7 +8,10 @@ import {
     ListItemText,
     ListItemIcon,
     Typography, 
-    Button
+    Button,
+    FormGroup,
+    TextField,
+    Divider
 } from '@material-ui/core'
 import { Alert } from '@material-ui/lab';
 import SaveIcon from '@material-ui/icons/Save';
@@ -16,18 +19,25 @@ import SaveIcon from '@material-ui/icons/Save';
 function Services() {
 
     let [list, setList] = React.useState([]) 
+    let [content, setContent] = React.useState('') 
     let [isSuccessSave, setIsSuccessSave] = React.useState(false) 
 
 
-    React.useEffect( () => {
+    React.useEffect(  () => { 
         axios.get('/pages')
             .then(
                 response => {
                     setList(response.uslugi) 
+                    setContent(response.content)
                 }
             )
-    }, [])
+    }, []) 
 
+    function handleInput(e) {
+        setContent(e.target.value) 
+        setIsSuccessSave(false)
+    } 
+      
     function handleToggle(id) { 
         let newList = list.slice()
         const currentItem = newList[id-1]
@@ -37,12 +47,13 @@ function Services() {
         setIsSuccessSave(false) 
     };
 
-    async function saveList(e) {
+    function saveData(e) {
         e.preventDefault() 
-        let newList = {
-            "uslugi" : list
+        const newList = {
+            "uslugi" : list,
+            "content": content
         }
-        await axios.put('/pages/', newList)
+        axios.put('/pages/', newList)
         .then( () => { 
                 setIsSuccessSave(true)
             }
@@ -52,12 +63,35 @@ function Services() {
     return (
         <div>
             <Typography variant={'h6'}>
-                Выберите страницы, которые будут показаны в списке
+                Введите текст для страницы "Услуги"
             </Typography>
             {
                 isSuccessSave &&
                 <Alert severity="success">Успешно сохранено!</Alert>
             }
+            <FormGroup>
+                <TextField  type='text'
+                            required
+                            variant="outlined"
+                            label='Введите контент(h1 и тд.)'
+                            value={content}
+                            name='content'
+                            onChange={handleInput} 
+                            multiline
+                            rows={3} 
+                            className={'mt-2'}
+                />
+            </FormGroup>
+
+            <div className='preview-container'>
+                <h3 className='preview-head'>Превью :</h3>
+                <Divider/>
+                <div dangerouslySetInnerHTML={{__html: content}}></div> 
+            </div>
+
+            <Typography variant={'h6'}  className='mt-2'>
+                Выберите страницы, которые будут показаны в списке 
+            </Typography>
             <List >
                     {
                         list.map((value) => {
@@ -89,7 +123,7 @@ function Services() {
                 color="primary"
                 size={'medium'}
                 startIcon={<SaveIcon/>}
-                onClick={saveList}
+                onClick={saveData}
             >
                 Сохранить
             </Button>

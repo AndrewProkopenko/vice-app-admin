@@ -16,7 +16,7 @@ function LaptopsServices () {
     let [newServiceSlug, setNewServiceSlug] = React.useState('')
 
     let [laptops, setLaptops] = React.useState([])
-    let {brands, services} = laptops
+    let {brands, services, companies} = laptops
 
     let newServices
     if(services) {
@@ -27,7 +27,7 @@ function LaptopsServices () {
     React.useEffect( () => {
         axios.get('http://localhost:3000/laptops')
             .then(
-                response => {
+                response => {  
                     setLaptops(response)
                 }
             )
@@ -55,7 +55,8 @@ function LaptopsServices () {
 
         const sentData = {
             "brands" : brands,
-            "services": newServices
+            "services": newServices, 
+            "companies": companies
         }
 
         setLaptops(sentData)

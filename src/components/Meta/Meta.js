@@ -16,9 +16,7 @@ function Meta(props) {
 
     let [isSuccessSave, setIsSuccessSave] = React.useState(false)
 
-    const {page} = useParams()
-
-    console.log(page)
+    const {page} = useParams() 
 
     function usePageViews() {
         let location = useLocation();
@@ -30,8 +28,8 @@ function Meta(props) {
             axios.get('http://localhost:3000/meta')
                 .then(
                     response => {
-                        setMeta(response)
-                        console.log((response))
+                        console.log(response)
+                        setMeta(response) 
                         setHeading(response[page].name)
                         setNewTitle(response[page].title)
                         setNewDesc(response[page].description)

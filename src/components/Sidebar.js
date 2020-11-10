@@ -39,40 +39,40 @@ function Sidebar() {
                                 <ListItemText primary={'Услуги'} secondary={"path: /uslugi"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/content/remont-noutbukov' >
+                        <NavLink exact to='/content/content-remont-noutbukov' >
                             <ListItem button >
                                 <ListItemText primary={'Ремонт ноутбуков'} secondary={"path: /uslugi/remont-noutbukov"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/1' >
-                            <ListItem button disabled={true} >
+                        <NavLink exact to='/content/pages/content-garantiynyy-remont' >
+                            <ListItem button  >
                                 <ListItemText primary={'Гарантийный ремонт'} secondary={"path: /uslugi/garantiynyy-remont"} className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/2' >
-                            <ListItem button disabled={true} >
+                        <NavLink exact to='/content/pages/content-remont-kompyuterov' >
+                            <ListItem button >
                                 <ListItemText primary={'Ремонт компьютеров'} secondary={"path: /uslugi/remont-kompyuterov"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
 
-                        <NavLink exact to='/4' >
-                            <ListItem button disabled={true} >
+                        <NavLink exact to='/content/pages/content-remont-istochnikov-bespereboynogo-pitaniya-i-stabilizatorov-napryazheniya' >
+                            <ListItem button >
                                 <ListItemText primary={'Ремонт источников бесперебойного питания и стабилизаторов напряжения'}
                                               secondary={"path: /uslugi/remont-istochnikov-bespereboynogo-pitaniya-i-stabilizatorov-napryazheniya"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/5' >
-                            <ListItem button disabled={true}>
+                        <NavLink exact to='/content/pages/content-remont-printerov-mfu-kopirov' >
+                            <ListItem button >
                                 <ListItemText primary={'Ремонт принтеров, МФУ, копиров'} secondary={"path: /uslugi/remont-printerov-mfu-kopirov"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/6' >
-                            <ListItem button disabled={true}>
+                        <NavLink exact to='/content/pages/content-remont-planshetov-i-smartfonov' >
+                            <ListItem button  >
                                 <ListItemText primary={'Ремонт планшетов и смартфонов'} secondary={"path: /uslugi/remont-planshetov-i-smartfonov"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/6' >
-                            <ListItem button  disabled={true}>
+                        <NavLink exact to='/content/pages/content-platnyy-remont' >
+                            <ListItem button >
                                 <ListItemText primary={'Платный ремонт'} secondary={"path: /uslugi/platnyy-remont"}  className={'pl-3'}/>
                             </ListItem>
                         </NavLink>
@@ -105,7 +105,12 @@ function Sidebar() {
                                 <ListItemText primary={'Ремонт компьютеров'} secondary={"path: /uslugi/remont-kompyuterov"}  className={'pl-5'}/>
                             </ListItem>
                         </NavLink>
-                        <NavLink exact to='/meta/uslugi-remont-istochnikov' >
+                        <NavLink exact to='/meta/uslugi-remont-noutbukov' >
+                            <ListItem button>
+                                <ListItemText primary={'Ремонт ноутбуков'} secondary={"path: /uslugi/remont-noutbukov"}  className={'pl-5'}/>
+                            </ListItem>
+                        </NavLink>
+                        <NavLink exact to='/meta/uslugi-remont-istochnikov-bespereboynogo-pitaniya-i-stabilizatorov-napryazheniya' >
                             <ListItem button  >
                                 <ListItemText primary={'Ремонт источников бесперебойного питания и стабилизаторов напряжения'}
                                               secondary={"path: /uslugi/remont-istochnikov-bespereboynogo-pitaniya-i-stabilizatorov-napryazheniya"}  className={'pl-5'}/>

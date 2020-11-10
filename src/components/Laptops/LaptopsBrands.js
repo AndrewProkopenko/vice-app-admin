@@ -16,7 +16,7 @@ function LaptopsBrands () {
     let [newBrandSlug, setNewBrandSlug] = React.useState('')
 
     let [laptops, setLaptops] = React.useState([])
-    let {brands, services} = laptops
+    let {brands, services, companies} = laptops
 
     let newBrands
     // let [newBrands, setNewBrands] = React.useState([])
@@ -73,7 +73,8 @@ function LaptopsBrands () {
 
         const sentData = {
             "brands" : filtered,
-            "services": services
+            "services": services,
+            "companies": companies
         }
 
         setLaptops(sentData)
