@@ -15,11 +15,13 @@ function Sidebar() {
         setOpen2(!open2);
     };
 
+   
+
     return (
 
-            <List>
-                <NavLink exact to='/'>
-                    <ListItem button>
+            <List >
+                <NavLink exact to='/' >
+                    <ListItem button  >
                         <ListItemText primary={'Главная '}/>
                     </ListItem>
                 </NavLink>

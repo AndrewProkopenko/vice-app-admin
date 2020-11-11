@@ -24,15 +24,16 @@ function Services() {
 
 
     React.useEffect(  () => { 
-        axios.get('/pages')
+        axios.get('/uslugi')
             .then(
                 response => {
-                    setList(response.uslugi) 
+                    setList(response.items) 
                     setContent(response.content)
                 }
             )
     }, []) 
 
+    console.log(list)
     function handleInput(e) {
         setContent(e.target.value) 
         setIsSuccessSave(false)

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch} from "react-router-dom";
 
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 import Prefixes from "./components/Prefixes";
 import Laptops from "./components/Laptops/Laptops";
 import Meta from "./components/Meta/Meta"

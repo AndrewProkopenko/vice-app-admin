@@ -25,10 +25,9 @@ function Meta(props) {
         React.useEffect(() => {
 
             setIsSuccessSave(false)
-            axios.get('http://localhost:3000/meta')
+            axios.get('/meta')
                 .then(
-                    response => {
-                        console.log(response)
+                    response => { 
                         setMeta(response) 
                         setHeading(response[page].name)
                         setNewTitle(response[page].title)
@@ -48,7 +47,7 @@ function Meta(props) {
             "name": heading
         }
         console.log(newMeta, meta)
-        axios.put('http://localhost:3000/meta', newMeta)
+        axios.put('/meta', newMeta)
             .then(()=>{
                 setIsSuccessSave(true)
             })

@@ -25,7 +25,7 @@ function LaptopsServices () {
 
 
     React.useEffect( () => {
-        axios.get('http://localhost:3000/laptops')
+        axios.get('/laptops')
             .then(
                 response => {  
                     setLaptops(response)
@@ -57,10 +57,10 @@ function LaptopsServices () {
             "brands" : brands,
             "services": newServices, 
             "companies": companies
-        }
+        } 
 
         setLaptops(sentData)
-        axios.put('http://localhost:3000/laptops', sentData)
+        axios.put('/laptops', sentData)
 
         setNewServiceName('')
         setNewServiceSlug('')
@@ -75,7 +75,7 @@ function LaptopsServices () {
         }
 
         setLaptops(sentData)
-        axios.put('http://localhost:3000/laptops', sentData)
+        axios.put('/laptops', sentData)
     }
 
     function renderServices() {

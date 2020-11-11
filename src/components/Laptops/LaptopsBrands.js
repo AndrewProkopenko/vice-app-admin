@@ -26,7 +26,7 @@ function LaptopsBrands () {
 
 
     React.useEffect( () => {
-        axios.get('http://localhost:3000/laptops')
+        axios.get('/laptops')
             .then(
                 response => {
                     setLaptops(response)
@@ -61,7 +61,7 @@ function LaptopsBrands () {
         }
 
         setLaptops(sentData)
-        axios.put('http://localhost:3000/laptops', sentData)
+        axios.put('/laptops', sentData)
 
 
         setNewBrandName('')
@@ -78,7 +78,7 @@ function LaptopsBrands () {
         }
 
         setLaptops(sentData)
-        axios.put('http://localhost:3000/laptops', sentData)
+        axios.put('/laptops', sentData)
     }
 
     function renderBrands() {

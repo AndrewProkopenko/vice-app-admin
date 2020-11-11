@@ -13,7 +13,7 @@ function Prefixes () {
     let [isSuccessSave, setIsSuccessSave] = React.useState(false)
 
     React.useEffect( () => {
-        axios.get('http://localhost:3000/prefixes')
+        axios.get('/prefixes')
             .then(
                 response => {
                     setPrefixes(response.laptops)
@@ -31,7 +31,7 @@ function Prefixes () {
         const newPrefix = {
             "laptops": prefixes
         }
-        axios.put('http://localhost:3000/prefixes', newPrefix)
+        axios.put('/prefixes', newPrefix)
             .then(
                 setIsSuccessSave(true)
             )
