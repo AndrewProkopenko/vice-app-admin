@@ -3,8 +3,7 @@ import axios from '../../libs/axios'
 
 import SaveIcon from '@material-ui/icons/Save';
 import { 
-    Grid,
-    Paper, 
+    Grid, 
     FormGroup, 
     TextField, 
     Button , 
@@ -17,6 +16,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import { Alert } from '@material-ui/lab';
 
+import { makeStyles } from '@material-ui/core/styles';
 
 function HomeReviews () {
 
@@ -26,6 +26,7 @@ function HomeReviews () {
     let [newTitle, setNewTitle] = React.useState('') 
     let [newAuthor, setNewAuthor] = React.useState('') 
     let [heading, setHeading] = React.useState('') 
+    let [file, setFile] = React.useState('')
 
     React.useEffect( () => {
         axios.get('/main-review')
@@ -34,6 +35,25 @@ function HomeReviews () {
                 setHeading(response.content)
             })
     }, []) 
+    const useStyles = makeStyles((theme) => ({
+        flexDiv: {
+          display: 'flex', 
+          alignItems: 'center',
+          marginTop: '1em'
+        },
+        input: {
+          display: 'none',
+        },
+        label: { 
+            marginRight: '1em',  
+        }
+      }));
+    const classes = useStyles();
+
+    function fileHendler(event) {  
+        console.log(event)
+        setFile(event.target.files[0])
+    }
 
     function hendleHeading(e) {  
         e.preventDefault()
@@ -64,7 +84,7 @@ function HomeReviews () {
         let newService  = { 
             "name": newAuthor,
             "text": newTitle,
-            "img": "", 
+            "img": file.name || '', 
             "id": newId
         }
 
@@ -109,6 +129,7 @@ function HomeReviews () {
                         ><DeleteIcon /></IconButton>
                     </div>
                     
+                    <div className="img">{  item.img}</div>
                     <div className="name">{  item.name}</div>
                     <div className="text">{ item.text }</div> 
                 </li> 
@@ -173,7 +194,30 @@ function HomeReviews () {
                                     name='adv'
                                     onChange={(e)=>{ setIsSuccessSave(false); setNewTitle(e.target.value)}}
                                     className={'mt-2 mr-2 flex-grow-1'}
-                            />
+                            /> 
+                        </FormGroup>
+                        <FormGroup row>  
+                            <div className={classes.flexDiv}>
+                                <input
+                                    accept="image/*"
+                                    className={classes.input}
+                                    id="contained-button-file-rev" 
+                                    type="file"
+                                    onChange={fileHendler}
+
+                                />
+                                <label htmlFor="contained-button-file-rev" className={classes.label}>
+                                    <Button variant="outlined"  color='info' component="div">
+                                        Выбрать картинку
+                                    </Button>
+                                </label>
+                                {
+                                    file.name !== undefined ?
+                                    <h6 className={classes.label}>Выбрано: {file.name}</h6> :
+                                    <span className='mr-2'>Примечание: для выбора картинки <br/> доступен только формат svg</span>
+                                }
+                                
+                           </div>
                             <Button
                                 type={'submit'}
                                 className={"mt-2"}

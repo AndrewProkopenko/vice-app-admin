@@ -14,6 +14,8 @@ import SaveIcon from '@material-ui/icons/Save'
 
 import { Alert } from '@material-ui/lab';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 
 // функция для редактирования текста в компонентах 
 function Pages() {
@@ -21,8 +23,25 @@ function Pages() {
     let [heading, setHeading] = React.useState('') 
     let [content, setContent] = React.useState('')   
     let [isSuccessSave, setIsSuccessSave] = React.useState(false)
+    
+    let [file, setFile] = React.useState('')
 
- 
+    const useStyles = makeStyles((theme) => ({
+        flexDiv: {
+          display: 'flex', 
+          alignItems: 'center',
+          marginTop: '1em'
+        },
+        input: {
+          display: 'none',
+        },
+        label: { 
+            marginRight: '1em',  
+        }
+      }));
+    const classes = useStyles();
+
+    
     function usePageViews() {
         let location = useLocation(); 
         React.useEffect(() => {
@@ -31,21 +50,35 @@ function Pages() {
             axios.get(`${page}`)
                 .then(
                     response => { 
+                        console.log(response.img)
                         setContent(response.content)
                         setHeading(response.heading) 
+                        setFile(response.img)
                     }
                 )
         }, [location]);
     }
+
+    function fileHendler(event) {  
+        console.log(event)
+        setFile(event.target.files[0].name)
+    } 
+
+    function removeImageFile() { 
+        setFile('')
+    }
+
     function handleInputContent(e) {
         setContent(e.target.value) 
         setIsSuccessSave(false)
     }  
+
     
     function hendleButtonSave() { 
         const newData = {
             "heading": heading, 
-            "content": content
+            "content": content, 
+            "img": file || '', 
         }
         axios.put(`/${page}`, newData)
             .then(
@@ -77,7 +110,7 @@ function Pages() {
                                     rows={18} 
                                     className={'mt-2'}
                         />
-                        <h5 className={'mt-2 mb-0'}> 
+                        {/* <h5 className={'mt-2 mb-0'}> 
                             Если хотите добавить картинку,напишите следующий текст: <br/>
                             <code>
                                 {String("<div class='image-230 float-left' style='background-image: url(../img/[ИМЯ-ФАЙЛА.РАСШИРЕНИЕ])'></div>")}    
@@ -86,7 +119,45 @@ function Pages() {
                             - класс image-230 - обязателен <br/>
                             - класс float-left - для того чтобы текст обтекал картинку <br/>
                             - обязательно имя картинки должно совпадать <br/>
-                        </h5>
+                        </h5> */}
+                            <div className='mt-2'>Не забудьте разместить в тексте: <br/> 
+                                <code>{String("<div class='image-portal'></div>")}</code>
+                                <br/>
+                                для обозначения места где должна быть картинка
+                            </div>
+                            <div className={classes.flexDiv}>
+                                <input
+                                    accept="image/svg+xml"
+                                    className={classes.input}
+                                    id="contained-button-file" 
+                                    type="file"
+                                    onChange={fileHendler}
+
+                                />
+                                <label htmlFor="contained-button-file" className={classes.label}>
+                                    <Button variant="outlined"  color='info' component="div">
+                                        Выбрать картинку
+                                    </Button>
+                                </label>
+                                
+                                {
+                                    file.length > 0 &&
+                                    <h6 className={classes.label}>Выбрано: {file}</h6>  
+                                }
+                                
+                                {
+                                    file.length > 0 &&
+                                    <Button 
+                                        variant="outlined"  
+                                        color='secondary' 
+                                        component="div"
+                                        onClick={removeImageFile}
+                                    >
+                                        Удалить картинку
+                                    </Button>
+                                }
+                                
+                            </div>
                         
                     </FormGroup>
                     
