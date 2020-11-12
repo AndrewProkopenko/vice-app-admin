@@ -45,6 +45,7 @@ function Pages() {
     function usePageViews() {
         let location = useLocation(); 
         React.useEffect(() => {
+             
 
             setIsSuccessSave(false)
             axios.get(`${page}`)
@@ -53,15 +54,19 @@ function Pages() {
                         console.log(response.img)
                         setContent(response.content)
                         setHeading(response.heading) 
-                        setFile(response.img)
+                        setFile(response.img) 
                     }
                 )
+                // .then( () => {
+                //     Image()
+                // }
+                // )
         }, [location]);
     }
 
-    function fileHendler(event) {  
-        console.log(event)
-        setFile(event.target.files[0].name)
+    function fileHendler(event) {   
+
+        setFile(event.target.files[0].name) 
     } 
 
     function removeImageFile() { 
@@ -78,13 +83,34 @@ function Pages() {
         const newData = {
             "heading": heading, 
             "content": content, 
-            "img": file || '', 
+            "img": file , 
         }
         axios.put(`/${page}`, newData)
             .then(
                 setIsSuccessSave(true)
             )
     }
+
+    // function Image() { 
+    //     let port = document.querySelector('.image-portal')
+        
+    //     let img = document.createElement('img')  
+
+    //     console.log(file)
+    //     // if(port) port.innerHTML = '';
+    //     if(port && file.length > 0 ) {
+    //         img.classList.add('image-230')
+    //         img.classList.add('float-left')
+    //         img.src = `/images/${file}`
+    //         // <div className='image-230 float-left' style='background-image: url(../images/2.jpg)'> 
+
+    //         // </div>  
+    //         port.appendChild(img)
+    //     }
+        
+    //     console.log(img)
+    // } 
+    // Image() 
 
     return (
         <div>

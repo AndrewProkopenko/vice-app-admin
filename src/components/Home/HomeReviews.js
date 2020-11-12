@@ -66,7 +66,8 @@ function HomeReviews () {
         .then( () => {
             setIsSuccessSave(true)
             setNewTitle('') 
-            setNewAuthor('')
+            setNewAuthor('') 
+            setFile('')
         }) 
 
     }
